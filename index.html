@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang='en-GB'>
+	<head>
+		<meta charset='utf-8'>
+		<meta name="viewport" content="width=device-width" />
+		<title>Progress Bars Demo</title>	
+		<link type="text/css" rel="stylesheet" href="css/style.css" media="all" />
+	</head>	
+	<body>		
+		<div id='container'></div>		
+		<script id='template' type='text/ractive'>
+		<div class="main-container">
+			<div class="progress-container">
+				<h1>Progress Bars Demo</h1>
+				{{#each allprogressBars:num}}		
+				  <div class="progress-bar"  style="overflow:hidden" id="{{progressbar}}">		
+					<div class="progress-bar-fill {{colorCls}}" style="width: {{progress}}%">
+					  <span class="progress-label" data-value="{{value}}">{{progress}}%</span>
+					</div>   
+				  </div>
+				{{/each}}	  
+				<select name="progressBarlist" id="progressBarlistId">
+				  {{#each allprogressBars:num}}
+					<option value="{{num}}">{{progressbar}}</option>
+				  {{/each}}
+				</select>	 
+				{{#each allbtns}}		
+					<input type="button" value="{{this}}" on-tap="upadateBar" >	
+				{{/each}}
+			</div>
+		</div>
+		</script>
+		<script src='js/ractive.js'></script>
+		<script src='js/ractive-events-tap.js'></script>
+		<script src='js/progressbar.js'></script>
+	</body>	
+</html>
