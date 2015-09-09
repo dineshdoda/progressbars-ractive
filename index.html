@@ -2,35 +2,53 @@
 <html lang='en-GB'>
 	<head>
 		<meta charset='utf-8'>
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="user-scalable=no, width=device-width" />
 		<title>Progress Bars Demo</title>	
-		<link type="text/css" rel="stylesheet" href="css/style.css" media="all" />
+		<link type="text/css" rel="stylesheet" href="./css/style.css" media="all" />
 	</head>	
 	<body>		
-		<div id='container'></div>		
-		<script id='template' type='text/ractive'>
-		<div class="main-container">
-			<div class="progress-container">
+		<!--
+		This is the element Ractive put the compiled HTML.
+		-->
+		<div id='container'></div>	
+		
+		<!--
+		This is the Ractive template. Ractivejs will parse this template and put the DOM in above container.
+		-->
+		<script id='template' type='text/ractive'>		
+			<div id="progress-container">
 				<h1>Progress Bars Demo</h1>
+				<!--
+					This is the list of progress bars defined in our js code.
+				-->
 				{{#each allprogressBars:num}}		
 				  <div class="progress-bar"  style="overflow:hidden" id="{{progressbar}}">		
 					<div class="progress-bar-fill {{colorCls}}" style="width: {{progress}}%">
 					  <span class="progress-label" data-value="{{value}}">{{progress}}%</span>
 					</div>   
 				  </div>
-				{{/each}}	  
+				{{/each}}
+				
+				<!--
+				This is to select which progress bar to be controlled by buttons
+				-->
 				<select name="progressBarlist" id="progressBarlistId">
 				  {{#each allprogressBars:num}}
 					<option value="{{num}}">{{progressbar}}</option>
 				  {{/each}}
 				</select>	 
+				
+				<!--
+				List of buttons mentioned in js code
+				-->
 				{{#each allbtns}}		
 					<input type="button" value="{{this}}" on-tap="upadateBar" >	
 				{{/each}}
-			</div>
-		</div>
+			</div>		
 		</script>
+		<!-- Ractive Library -->
 		<script src='js/ractive.js'></script>
+		<!-- Ractive Tap plugin to eliminates the 300ms delay on touch-enabled devices -->
 		<script src='js/ractive-events-tap.js'></script>
 		<script src='js/progressbar.js'></script>
 	</body>	
