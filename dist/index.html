@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang='en-GB'>
+	<head>
+		<meta charset='utf-8'>
+		<meta name="viewport" content="user-scalable=no, width=device-width" />
+		<title>Progress Bars Demo</title>	
+		
+		<link rel="stylesheet" href="css/style.css" media="all">
+
+	</head>	
+	<body>		
+		<!--
+		This is the element Ractive put the compiled HTML.
+		-->
+		<div id='container'></div>	
+		
+		<!--
+		This is the Ractive template. Ractivejs will parse this template and put the DOM in above container.
+		-->
+		<script id='template' type='text/ractive'>		
+			<div id="progress-container">
+				<h1>Progress Bars Demo</h1>
+				<!--
+					This is the list of progress bars defined in our js code.
+				-->
+				{{#each allprogressBars:num}}		
+				  <div class="progress-bar"  style="overflow:hidden" id="{{progressbar}}">		
+					<div class="progress-bar-fill {{colorCls}}" style="width: {{progress}}%">
+					  <span class="progress-label" data-value="{{value}}">{{progress}}%</span>
+					</div>   
+				  </div>
+				{{/each}}
+				
+				<!--
+				This is to select which progress bar to be controlled by buttons
+				-->
+				<select name="progressBarlist" id="progressBarlistId">
+				  {{#each allprogressBars:num}}
+					<option value="{{num}}">{{progressbar}}</option>
+				  {{/each}}
+				</select>	 
+				
+				<!--
+				List of buttons mentioned in js code
+				-->
+				{{#each allbtns}}		
+					<input type="button" value="{{this}}" on-tap="upadateBar" >	
+				{{/each}}
+			</div>		
+		</script>
+		
+		
+		<!-- Ractive Library -->
+		<script src="js/scripts.min.js"></script>
+
+		
+	</body>	
+</html>

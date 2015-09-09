@@ -1,0 +1,36 @@
+{
+  "name": "progress-bars-demo",
+  "version": "1.0.0",
+  "description": "Progress Bars assignment using ractive js",
+  "main": "index.html",
+  "dependencies": {
+    "grunt": "~0.4.1"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-clean": "^0.6.0",
+    "grunt-contrib-copy": "~0.4.1",
+    "grunt-contrib-cssmin": "^0.13.0",
+    "grunt-contrib-htmlmin": "^0.4.0",
+    "grunt-contrib-jshint": "~0.4.0",
+    "grunt-contrib-less": "^1.0.1",
+    "grunt-contrib-uglify": "~0.2.0",
+    "grunt-usemin": "^3.1.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dineshdoda/progressbars-ractive.git"
+  },
+  "keywords": [
+    "progress",
+    "bars",
+    "assignment",
+    "ractive"
+  ],
+  "author": "Dinesh Kumar Doda",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dineshdoda/progressbars-ractive/issues"
+  },
+  "homepage": "https://github.com/dineshdoda/progressbars-ractive#readme"
+}
