@@ -1,0 +1,36 @@
+@barColor: #D5EBF2;
+@borderColor: #7EB8C9;
+@warningColor: #FC4A4A;
+
+#progress-container {
+	padding: 10px; 
+	font-family: Arial; 
+
+	.progress-bar {
+	  position: relative;  
+	  margin-bottom: 10px;
+	  border: 1px solid @borderColor; 
+	  height: 40px;
+	  
+	}
+	.progress-bar-fill{ 
+		width: 100%;
+		height: inherit;  
+		background: @barColor;    
+		overflow: hidden;	
+		-webkit-transition: width 0.1s;
+		transition: width 0.1s;
+		transition-timing-function: linear;
+	}
+	 .progress-label{
+		position: absolute;  
+		width: 30px;
+		margin: auto;
+		height: 20px;
+		left: 49%; 
+		top: 25%;
+	}
+	.warningclr{ background: @warningColor !important; }
+	input[type=button] { margin-left:5px;height:25px; }
+	select{ height:25px; }
+}
